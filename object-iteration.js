@@ -24,7 +24,7 @@ etc
 */
 
 export function makeWeirdStringFromKeys(someObject) {
-    return '';
+    return Object.keys(someObject).reduce((acc, el) => acc + el);
 }
 
 
@@ -38,7 +38,10 @@ Output:
 */
 
 export function makeMoreScreamingKeys(someObject) {
-    return {};
+    return Object.entries(someObject).reduce((acc, entry) => {
+        acc[entry[0].toUpperCase()] = entry[1];
+        return acc;
+    }, {});
 }
 
 /*
@@ -51,5 +54,5 @@ Output:
 */
 
 export function makeTuples(someObject) {
-    return [];
+    return Object.entries(someObject);
 }
