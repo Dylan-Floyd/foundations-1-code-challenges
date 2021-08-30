@@ -118,4 +118,5 @@ export function countByCategory(arr) {
         }
         return acc;
     }, {});
+    //small change
 }
