@@ -50,7 +50,10 @@ Output:
 */
 
 export function organizePricesByKey(arr) {
-    return {};
+    return arr.reduce((acc, obj) => {
+        acc[obj.id] = obj.price;
+        return acc;
+    }, {});
 }
 
 /*
@@ -90,7 +93,10 @@ Output:
 */
 
 export function makeAHashMap(arr) {
-    return {};
+    return arr.reduce((acc, obj) => {
+        acc[obj.id] = obj;
+        return acc;
+    }, {});
 }
 
 
@@ -104,5 +110,12 @@ Output:
 */
 
 export function countByCategory(arr) {
-    return {};
+    return arr.reduce((acc, obj) => {
+        if (typeof acc[obj.category] !== 'undefined') {
+            acc[obj.category] += 1;
+        } else {
+            acc[obj.category] = 1;
+        }
+        return acc;
+    }, {});
 }
