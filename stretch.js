@@ -104,5 +104,13 @@ Output:
 */
 
 export function countByCategory(arr) {
-    return {};
+    return arr.reduce((acc, obj) => {
+        if (typeof acc[obj.category] !== 'undefined') {
+            acc[obj.category] += 1;
+        } else {
+            acc[obj.category] = 1;
+        }
+        return acc;
+    }, {});
+    //small change
 }
